@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     getNotes(){
-  fetch('http://localhost:3000/notes', {
+  fetch('https://jaffrelot-notes-api.herokuapp.com/notes', {
   method: 'GET',
 })
   .then(response => {
