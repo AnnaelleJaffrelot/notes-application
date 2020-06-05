@@ -32,7 +32,7 @@
       @blur="$v.select.$touch()"
     ></v-select>-->
 
-    <v-btn class="mr-4" @click="submit">Ajouter la note</v-btn>
+    <v-btn class="mr-4" @click="postNote">Ajouter la note</v-btn>
     <v-btn @click="clear">Effacer</v-btn>
   </form>
 </template>
@@ -76,13 +76,15 @@ export default {
     }
   },
   created() {
-    this.postNote();
+   
   },
   methods: {
     postNote() {
-      fetch("http://localhost:3000/note", {
+      /* http://localhost:3000/note */
+      /* https://jaffrelot-notes-api.herokuapp.com/notes */
+      fetch("https://jaffrelot-notes-api.herokuapp.com/notes", {
         method: "POST",
-        body: JSON.stringify({tittle:'tittle', post:'body'})
+        body: JSON.stringify({title:this.title, post:this.post})
       })
         .then(response => response.json())
         .then(json => console.log(json))
